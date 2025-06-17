@@ -1,0 +1,193 @@
+/* .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+} */
+/* .navbar{
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 0.15rem;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+} */
+/* .nav-list{
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    gap: 5rem;
+    margin-right: 3rem;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  font-family: "Rubik", sans-serif;
+  color: #444;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+header {
+  height: 100vh;
+  position: relative;
+
+  background-image: linear-gradient(
+    #11111199,
+    #11111199
+  ), url("https://png.pngtree.com/thumb_back/fh260/background/20240717/pngtree-summer-vacation-and-online-booking-image_15888178.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+nav {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+}
+
+.header-container {
+  width: 1200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #f0e0bb;
+}
+
+.header-container-inner {
+  width: 50%;
+}
+
+h1 {
+  font-size: 52px;
+  margin-bottom: 32px;
+  line-height: 1.05;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+
+.btn:link,
+.btn:visited {
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #228833;
+  background-color: #c99620;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 9px;
+}
+
+h2 {
+  font-size: 44px;
+  margin-bottom: 48px;
+}
+
+/* section {
+  padding: 96px 0;
+  background-color: #f7f7f7;
+} */
+.form-container{
+  margin-bottom:5%;
+}
+
+:root {
+  --accent: #1d53ab;
+}
+
+#form-header{
+  margin-top:5%;
+  text-align:center;
+}
+
+#form-tagline{
+  
+  background: var(--accent);
+  
+  background-image: linear-gradient(
+    #11111199,
+    #11111199
+  ), url("https://cdn.sanity.io/images/r115idoc/production/765f92a1b472f451f6619c7db35608399f2c4441-3240x2160.png?w=3840&q=75&fit=clip&auto=format");
+  background-size: cover;
+  background-position: left;
+  border-top-left-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+  color:#ffffff;
+  margin-top:5%;
+  padding: 4%;
+  text-align:left;
+}
+
+#form-tagline .fa{
+  margin-bottom:15%;
+}
+
+#form-tagline h2 {
+  margin-bottom:15%;
+}
+
+#form-content{
+  background: #f4f4f4;
+  border-top-right-radius: 0.5rem;
+	border-bottom-right-radius:0.5rem;
+  margin-top:5%;
+  padding: 3%;
+}
+
+.form-group{
+  margin-top:5%;
+}
+
+.contact{
+	padding: 4%;
+	height: 400px;
+}
+
+.control-label{
+  font-size:16px;
+	font-weight:600;
+}
+
+div .submit-button{
+  margin-top:3%;
+  text-align:right;
+}
+
+button#submit{
+  white-space: normal;
+  width:auto;
+	background:  var(--accent);;
+	color: #ffffff;
+  font-weight: 600;
+	width: 25%;
+}
+
+

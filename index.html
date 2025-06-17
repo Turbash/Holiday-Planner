@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div>LOGO</div>
+            <div>LOGIN</div>
+        </nav>
+
+        <div class="header-container">
+            <div class="header-container-inner">
+                <h1>A healty meal delivered to your door, every single day</h1>
+                <p>
+                    The smart 365-days-per-year food subscription that will make you eat
+                    healty algain. Tailored to your personal tastes and nutritional
+                    needs
+                </p>
+                <a href="#" class="btn">Start Planning</a>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2>Some random heading</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam
+                laborum esse, id doloribus nemo hic nulla, fugiat autem atque ipsum
+                quaerat illum qui in expedita labore eaque, impedit fugit! Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Impedit dicta praesentium
+                nostrum optio, fugit, quaerat alias accusamus quia, laboriosam numquam
+                enim temporibus dignissimos voluptates dolor? Illo eligendi
+                perferendis veritatis assumenda!
+            </p>
+        </div>
+    </section>
+
+    <div class="form-container"> <!-- open container -->
+        <div class="row"> <!--  open row -->
+
+            <div id="form-header" class="col-12">
+                <h1 id="title">Hotel Survey Form</h1>
+            </div>
+        </div> <!--  close row -->
+
+        <div class="row"> <!--  open row -->
+            <div id="form-tagline" class="col-md-4">
+                <div class="form-tagline">
+                    <i class="fa fa-envelope fa-5x"></i>
+                    <h2>How Are We Doing?</h2>
+                    <p id="description" class="lead">We really value your opinion</p>
+                </div>
+            </div>
+
+            <div id="form-content" class="col-md-8">
+
+                <form id="survey-form" onsubmit="return false;"> <!-- open form -->
+
+                    <div class="row form-group">
+                        <div class="col-sm-3">
+                            <label id="name-label" class="control-label" for="name">*Name:</label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-name"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input id="name" type="text" class="form-control" placeholder="Please Enter Your Name"
+                                name="name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label id="email-label" class="control-label" for="email">*Email:</label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-mail"><i
+                                        class="fa fa-envelope"></i></span>
+                            </div>
+                            <input type="email" class="form-control" id="email" placeholder="Enter Your Email"
+                                name="email" pattern="^[-+.\w]{1,64}@[-.\w]{1,64}\.[-.\w]{2,6}$" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label id="number-label" class="control-label" for="email">*Room Number:</label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-room"><i
+                                        class="fa fa-door-open"></i></span>
+                            </div>
+                            <input type="number" class="form-control" id="number" placeholder="Enter Your Room Number"
+                                name="number" min="1" max="125" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label class="control-label" for="visit-purpose">Type of Trip:</label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-purpose"><i
+                                        class="fa fa-hotel"></i></span>
+                            </div>
+
+                            <select class="form-control" id="dropdown">
+                                <option>Business</option>
+                                <option>Couple</option>
+                                <option>Family</option>
+                                <option>Friends</option>
+                                <option>Solo</option>
+                                <option>Event</option>
+                                <option>Other</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                        <div class="col-sm-3">
+                            <label class="control-label" for="visit-purpose">Rate Your Stay:</label>
+                        </div>
+
+                        <div class="col-sm-9">
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="star-rating" id="five-star"
+                                    value="five-star">
+                                <label class="form-check-label" for="five-star">Excellent</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="star-rating" id="four-star"
+                                    value="four-star">
+                                <label class="form-check-label" for="four-star">Very Good</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="three-star" name="star-rating"
+                                    value="three-star">
+                                <label class="form-check-label" for="three-star">Average</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="two-star" name="star-rating"
+                                    value="two-star">
+                                <label class="form-check-label" for="two-star">Poor</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="one-star" name="star-rating"
+                                    value="one-star">
+                                <label class="form-check-label" for="one-star">Terrible</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group row">
+
+                        <div class="col-sm-3">
+                            <label class="control-label" for="visit-purpose">Things You Liked:</label>
+                        </div>
+
+                        <div class="col-sm-9">
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="service" value="service">
+                                <label class="form-check-label" for="service">Service</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="value" value="value">
+                                <label class="form-check-label" for="value">Value</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="sleep-quality"
+                                    value="sleep-quality">
+                                <label class="form-check-label" for="sleep-quality">Sleep Quality</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="cleanliness" value="cleanliness">
+                                <label class="form-check-label" for="cleanliness">Cleanliness</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="facilities" value="facilities">
+                                <label class="form-check-label" for="facilities">Facilities</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label class="control-label" for="comment">Comments:</label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-mail"><i
+                                        class="fa fa-comment"></i></span>
+                            </div>
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 submit-button">
+                            <button type="submit" id="submit" class="btn btn-default" aria-pressed="true">Submit
+                                Form</button>
+                        </div>
+                    </div>
+
+                </form> <!-- close form -->
+
+            </div> <!-- close form content div -->
+
+        </div> <!-- close row -->
+    </div><!--  close container -->
+
+    <section>
+        <div class="form-container">
+            <h2>Some random heading</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam
+                laborum esse, id doloribus nemo hic nulla, fugiat autem atque ipsum
+                quaerat illum qui in expedita labore eaque, impedit fugit! Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Impedit dicta praesentium
+                nostrum optio, fugit, quaerat alias accusamus quia, laboriosam numquam
+                enim temporibus dignissimos voluptates dolor? Illo eligendi
+                perferendis veritatis assumenda!
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>Some random heading</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam
+                laborum esse, id doloribus nemo hic nulla, fugiat autem atque ipsum
+                quaerat illum qui in expedita labore eaque, impedit fugit! Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Impedit dicta praesentium
+                nostrum optio, fugit, quaerat alias accusamus quia, laboriosam numquam
+                enim temporibus dignissimos voluptates dolor? Illo eligendi
+                perferendis veritatis assumenda!
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>Some random heading</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam
+                laborum esse, id doloribus nemo hic nulla, fugiat autem atque ipsum
+                quaerat illum qui in expedita labore eaque, impedit fugit! Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Impedit dicta praesentium
+                nostrum optio, fugit, quaerat alias accusamus quia, laboriosam numquam
+                enim temporibus dignissimos voluptates dolor? Illo eligendi
+                perferendis veritatis assumenda!
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>Some random heading</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni veniam
+                laborum esse, id doloribus nemo hic nulla, fugiat autem atque ipsum
+                quaerat illum qui in expedita labore eaque, impedit fugit! Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Impedit dicta praesentium
+                nostrum optio, fugit, quaerat alias accusamus quia, laboriosam numquam
+                enim temporibus dignissimos voluptates dolor? Illo eligendi
+                perferendis veritatis assumenda!
+            </p>
+        </div>
+    </section>
+
+</body>
+
+</html>
