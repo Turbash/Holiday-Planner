@@ -36,20 +36,23 @@ a{
   box-sizing: border-box;
 }
 
-
 html {
-  font-family: "Rubik", sans-serif;
   color: #444;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .container {
   margin: 0 auto;
-  width: 1200px;
+  width: 83.33%;
 }
 
 header {
   height: 100vh;
   position: relative;
+  font-family: "Rubik", sans-serif;
 
   background-image: linear-gradient(
     #11111199,
@@ -60,16 +63,16 @@ header {
   color: #fff;
 }
 
-nav {
-  font-size: 20px;
+#nav {
+  font-size: 1.4rem;
   font-weight: 700;
   display: flex;
   justify-content: space-between;
-  padding-top: 32px;
+  padding-top: 2.5rem;
 }
 
 .header-container {
-  width: 1200px;
+  width: 83.33%;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -80,43 +83,68 @@ nav {
 .header-container-inner {
   width: 50%;
 }
-
+@media (max-width: 768px) {
+  .header-container-inner {
+    width: 100%;
+  }
+}
 h1 {
-  font-size: 52px;
-  margin-bottom: 32px;
-  line-height: 1.05;
+  font-size: 2.5rem;
+  margin-bottom: 3.2rem;
+  line-height: 1rem;
 }
 
+@media screen and (max-width: 768px) {
+   h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.6rem;
+    line-height: 0.5rem;
+  }
+  h2{
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1rem;
+  }
+}
+  
+
+
 p {
-  font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 48px;
+  font-size: 1.6rem;
+  line-height: 3rem;
+  margin-bottom: 4rem;
 }
 
 .btn:link,
 .btn:visited {
-  font-size: 20px;
+  font-size: 1.4rem;
   font-weight: 600;
   background-color: #228833;
   background-color: #c99620;
   color: #fff;
   text-decoration: none;
   display: inline-block;
-  padding: 16px 32px;
-  border-radius: 9px;
+  padding: 1rem 2rem;
+  border-radius: 0.8rem;
 }
 
 h2 {
-  font-size: 44px;
-  margin-bottom: 48px;
+  font-size: 2.5rem;
+  margin-bottom: 6rem;
 }
 
-/* section {
-  padding: 96px 0;
+section {
+  padding: 10rem 0;
   background-color: #f7f7f7;
-} */
+  font-family: "Rubik", sans-serif;
+
+}
 .form-container{
   margin-bottom:5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-family: "Rubik", sans-serif;
+
 }
 
 :root {
@@ -146,6 +174,14 @@ h2 {
   text-align:left;
 }
 
+@media (max-width: 768px) {
+  #form-tagline {
+    border-radius: 0.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0 ;
+}
+}
+
 #form-tagline .fa{
   margin-bottom:15%;
 }
@@ -162,18 +198,26 @@ h2 {
   padding: 3%;
 }
 
+@media (max-width: 768px) {
+  #form-content {
+    margin-top: 0;
+    border-radius: 0.5rem;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+}
 .form-group{
   margin-top:5%;
 }
 
 .contact{
 	padding: 4%;
-	height: 400px;
+	height: 32rem;
 }
 
 .control-label{
-  font-size:16px;
-	font-weight:600;
+  font-size:1.3rem;
+	font-weight: 400;
 }
 
 div .submit-button{
@@ -186,7 +230,7 @@ button#submit{
   width:auto;
 	background:  var(--accent);;
 	color: #ffffff;
-  font-weight: 600;
+  font-weight: 50rem;
 	width: 25%;
 }
 
