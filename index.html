@@ -1,423 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Holiday Planner</title>
-        <link rel="stylesheet" href="styles.css" />
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous"
-        />
 
-        <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holiday Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
-    <body>
-        <header>
-            <nav class="container" id="nav">
-                <div>LOGO</div>
-                <a href="/login.html">LOGIN</a>
-            </nav>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
+</head>
 
-            <div class="header-container">
-                <div class="header-container-inner">
-                    <h1>
-                        A healty meal delivered to your door, every single day
-                    </h1>
-                    <p>
-                        The smart 365-days-per-year food subscription that will
-                        make you eat healty algain. Tailored to your personal
-                        tastes and nutritional needs
-                    </p>
-                    <a href="#" class="btn">Start Planning</a>
-                </div>
-            </div>
-        </header>
+<body>
+    <header>
+        <nav class="container" id="nav">
+            <div>LOGO</div>
+            <a href="/login.html">LOGIN</a>
+        </nav>
 
-        <section>
-            <div class="container">
-                <h2>Some random heading</h2>
+        <div class="header-container">
+            <div class="header-container-inner">
+                <h1>
+                    A healty meal delivered to your door, every single day
+                </h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Magni veniam laborum esse, id doloribus nemo hic nulla,
-                    fugiat autem atque ipsum quaerat illum qui in expedita
-                    labore eaque, impedit fugit! Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Impedit dicta praesentium
-                    nostrum optio, fugit, quaerat alias accusamus quia,
-                    laboriosam numquam enim temporibus dignissimos voluptates
-                    dolor? Illo eligendi perferendis veritatis assumenda!
+                    The smart 365-days-per-year food subscription that will
+                    make you eat healty algain. Tailored to your personal
+                    tastes and nutritional needs
                 </p>
+                <a href="#" class="btn">Start Planning</a>
             </div>
-        </section>
+        </div>
+    </header>
 
-        <div class="form-container">
-            <!-- open container -->
-            <div class="row">
-                <!--  open row -->
+    <section>
+        <div class="container">
+            <h2>Some random heading</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Magni veniam laborum esse, id doloribus nemo hic nulla,
+                fugiat autem atque ipsum quaerat illum qui in expedita
+                labore eaque, impedit fugit! Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Impedit dicta praesentium
+                nostrum optio, fugit, quaerat alias accusamus quia,
+                laboriosam numquam enim temporibus dignissimos voluptates
+                dolor? Illo eligendi perferendis veritatis assumenda!
+            </p>
+        </div>
+    </section>
 
-                <div id="form-header" class="col-12">
-                    <h1 id="title">Hotel Survey Form</h1>
+    <div class="form-container">
+        <!-- open container -->
+        <div class="row">
+            <!--  open row -->
+
+            <div id="form-header" class="col-12">
+                <h1 id="title">Holiday Plan Generator</h1>
+            </div>
+        </div>
+        <!--  close row -->
+
+        <div class="row">
+            <!--  open row -->
+            <div id="form-tagline" class="col-md-4">
+                <div class="form-tagline">
+                    <i class="fa fa-umbrella-beach fa-5x"></i>
+                    <h2>Plan Your Holiday</h2>
+                    <p id="description" class="lead">
+                        Generate a personalized holiday plan
+                    </p>
                 </div>
             </div>
-            <!--  close row -->
 
+            <div id="form-content" class="col-md-8">
+                <form id="survey-form">
+                    <!-- open form -->
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label class="control-label" for="group_type">Type of Trip:</label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-purpose">
+                                    <i class="fa fa-users"></i>
+                                </span>
+                            </div>
+
+                            <select class="form-control" id="group_type" name="group_type">
+                                <option value="friends">Friends</option>
+                                <option value="couple">Couple</option>
+                                <option value="family">Family</option>
+                                <option value="solo">Solo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label id="budget-label" class="control-label" for="budget_in_rupees">
+                                *Budget (₹):
+                            </label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-budget">
+                                    <i class="fa fa-rupee-sign"></i>
+                                </span>
+                            </div>
+                            <input type="number" class="form-control" id="budget_in_rupees"
+                                placeholder="Enter your budget in rupees" name="budget_in_rupees" min="1000" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label id="people-label" class="control-label" for="no_of_people">
+                                *Number of People:
+                            </label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-people">
+                                    <i class="fa fa-user-friends"></i>
+                                </span>
+                            </div>
+                            <input type="number" class="form-control" id="no_of_people"
+                                placeholder="Number of travelers" name="no_of_people" min="1" max="20" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label id="location-label" class="control-label" for="location">
+                                *Location:
+                            </label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-location">
+                                    <i class="fa fa-map-marker-alt"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="location" placeholder="Where do you want to go?"
+                                name="location" minlength="3" maxlength="40" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label id="days-label" class="control-label" for="no_of_days">
+                                *Number of Days:
+                            </label>
+                        </div>
+
+                        <div class="input-group col-sm-9">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-days">
+                                    <i class="fa fa-calendar-alt"></i>
+                                </span>
+                            </div>
+                            <input type="number" class="form-control" id="no_of_days" placeholder="Length of stay"
+                                name="no_of_days" min="1" max="30" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 submit-button">
+                            <button type="submit" id="submit" class="btn btn-default" aria-pressed="true">
+                                Generate Holiday Plan
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- close form -->
+            </div>
+            <!-- close form content div -->
+        </div>
+        <!-- close row -->
+    </div>
+    <!--  close container -->
+
+
+    <footer>
+        <div class="footer-container">
             <div class="row">
-                <!--  open row -->
-                <div id="form-tagline" class="col-md-4">
-                    <div class="form-tagline">
-                        <i class="fa fa-envelope fa-5x"></i>
-                        <h2>How Are We Doing?</h2>
-                        <p id="description" class="lead">
-                            We really value your opinion
-                        </p>
+                <div class="col-md-6">
+                    <div class="footer-section">
+                        <h3>Send Us Feedback</h3>
+                        <form id="feedback-form">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
 
-                <div id="form-content" class="col-md-8">
-                    <form id="survey-form" onsubmit="return false;">
-                        <!-- open form -->
-
-                        <div class="row form-group">
-                            <div class="col-sm-3">
-                                <label
-                                    id="name-label"
-                                    class="control-label"
-                                    for="name"
-                                    >*Name:</label
-                                >
-                            </div>
-
-                            <div class="input-group col-sm-9">
-                                <div class="input-group-prepend">
-                                    <span
-                                        class="input-group-text"
-                                        id="basic-addon-name"
-                                        ><i class="fa fa-user"></i
-                                    ></span>
-                                </div>
-                                <input
-                                    id="name"
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Please Enter Your Name"
-                                    name="name"
-                                    required
-                                />
-                            </div>
+                <div class="col-md-6">
+                    <div class="footer-section">
+                        <h3>Contact Info</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Holiday Street, Vacation City</p>
+                        <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                        <p><i class="fas fa-envelope"></i> info@holidayplanner.com</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-3">
-                                <label
-                                    id="email-label"
-                                    class="control-label"
-                                    for="email"
-                                    >*Email:</label
-                                >
-                            </div>
-
-                            <div class="input-group col-sm-9">
-                                <div class="input-group-prepend">
-                                    <span
-                                        class="input-group-text"
-                                        id="basic-addon-mail"
-                                        ><i class="fa fa-envelope"></i
-                                    ></span>
-                                </div>
-                                <input
-                                    type="email"
-                                    class="form-control"
-                                    id="email"
-                                    placeholder="Enter Your Email"
-                                    name="email"
-                                    pattern="^[-+.\w]{1,64}@[-.\w]{1,64}\.[-.\w]{2,6}$"
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-3">
-                                <label
-                                    id="number-label"
-                                    class="control-label"
-                                    for="email"
-                                    >*Room Number:</label
-                                >
-                            </div>
-
-                            <div class="input-group col-sm-9">
-                                <div class="input-group-prepend">
-                                    <span
-                                        class="input-group-text"
-                                        id="basic-addon-room"
-                                        ><i class="fa fa-door-open"></i
-                                    ></span>
-                                </div>
-                                <input
-                                    type="number"
-                                    class="form-control"
-                                    id="number"
-                                    placeholder="Enter Your Room Number"
-                                    name="number"
-                                    min="1"
-                                    max="125"
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-3">
-                                <label class="control-label" for="visit-purpose"
-                                    >Type of Trip:</label
-                                >
-                            </div>
-
-                            <div class="input-group col-sm-9">
-                                <div class="input-group-prepend">
-                                    <span
-                                        class="input-group-text"
-                                        id="basic-addon-purpose"
-                                        ><i class="fa fa-hotel"></i
-                                    ></span>
-                                </div>
-
-                                <select class="form-control" id="dropdown">
-                                    <option>Business</option>
-                                    <option>Couple</option>
-                                    <option>Family</option>
-                                    <option>Friends</option>
-                                    <option>Solo</option>
-                                    <option>Event</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-3">
-                                <label class="control-label" for="visit-purpose"
-                                    >Rate Your Stay:</label
-                                >
-                            </div>
-
-                            <div class="col-sm-9">
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="star-rating"
-                                        id="five-star"
-                                        value="five-star"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="five-star"
-                                        >Excellent</label
-                                    >
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        name="star-rating"
-                                        id="four-star"
-                                        value="four-star"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="four-star"
-                                        >Very Good</label
-                                    >
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        id="three-star"
-                                        name="star-rating"
-                                        value="three-star"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="three-star"
-                                        >Average</label
-                                    >
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        id="two-star"
-                                        name="star-rating"
-                                        value="two-star"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="two-star"
-                                        >Poor</label
-                                    >
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="radio"
-                                        id="one-star"
-                                        name="star-rating"
-                                        value="one-star"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="one-star"
-                                        >Terrible</label
-                                    >
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr />
-
-                        <div class="form-group row">
-                            <div class="col-sm-3">
-                                <label class="control-label" for="visit-purpose"
-                                    >Things You Liked:</label
-                                >
-                            </div>
-
-                            <div class="col-sm-9">
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        id="service"
-                                        value="service"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="service"
-                                        >Service</label
-                                    >
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        id="value"
-                                        value="value"
-                                    />
-                                    <label class="form-check-label" for="value"
-                                        >Value</label
-                                    >
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        id="sleep-quality"
-                                        value="sleep-quality"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="sleep-quality"
-                                        >Sleep Quality</label
-                                    >
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        id="cleanliness"
-                                        value="cleanliness"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="cleanliness"
-                                        >Cleanliness</label
-                                    >
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        id="facilities"
-                                        value="facilities"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="facilities"
-                                        >Facilities</label
-                                    >
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-3">
-                                <label class="control-label" for="comment"
-                                    >Comments:</label
-                                >
-                            </div>
-
-                            <div class="input-group col-sm-9">
-                                <div class="input-group-prepend">
-                                    <span
-                                        class="input-group-text"
-                                        id="basic-addon-mail"
-                                        ><i class="fa fa-comment"></i
-                                    ></span>
-                                </div>
-                                <textarea
-                                    class="form-control"
-                                    rows="5"
-                                    id="comment"
-                                ></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-12 submit-button">
-                                <button
-                                    type="submit"
-                                    id="submit"
-                                    class="btn btn-default"
-                                    aria-pressed="true"
-                                >
-                                    Submit Form
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- close form -->
+                    </div>
                 </div>
-                <!-- close form content div -->
             </div>
-            <!-- close row -->
         </div>
-        <!--  close container -->
 
-        
-        <footer>
-            <div class="footer-container">
-                footer
+        <div class="copyright">
+            <p>&copy; 2025 Holiday Planner. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
             </div>
-        </footer>
-    </body>
+        </div>
+    </footer>
+</body>
+
 </html>
