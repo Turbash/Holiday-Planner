@@ -31,7 +31,7 @@
                     make you eat healty algain. Tailored to your personal
                     tastes and nutritional needs
                 </p>
-                <a href="#" class="btn">Start Planning</a>
+                <a href="#form-container" class="btn">Start Planning</a>
             </div>
         </div>
     </header>
@@ -63,7 +63,7 @@
         </div>
         <!--  close row -->
 
-        <div class="row">
+        <div class="row" id="form-container">
             <!--  open row -->
             <div id="form-tagline" class="col-md-4">
                 <div class="form-tagline">
@@ -195,12 +195,12 @@
                 <div class="col-md-6">
                     <div class="footer-section">
                         <h3>Send Us Feedback</h3>
-                        <form id="feedback-form">
+                        <form id="feedback-form" method="POST" action="https://formspree.io/f/mldnprvq">
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="3" placeholder="Your Message" required></textarea>
+                                <textarea class="form-control" name="feedback" rows="3" placeholder="Your Message" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Tropical Holiday Plan</title>
+    <link rel="stylesheet" href="display.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="plan-title">Your Tropical Getaway</h1>
+            <p id="plan-subtitle">Generated just for you</p>
+            <div id="plan-details">
+                <span id="location"><i class="fas fa-map-marker-alt"></i> Loading...</span>
+                <span id="budget"><i class="fas fa-rupee-sign"></i> Loading...</span>
+                <span id="days"><i class="fas fa-calendar-day"></i> Loading...</span>
+                <span id="people"><i class="fas fa-users"></i> Loading...</span>
+            </div>
+        </header>
+
+        <div id="plan-container">
+            <div class="loading">
+                <i class="fas fa-umbrella-beach"></i> Loading your perfect getaway...
+            </div>
+        </div>
+        
+        <div id="additional-info" class="hidden">
+            <!-- Weather section -->
+            <div class="info-section weather-section">
+                <h2><i class="fas fa-cloud-sun"></i> Weather Information</h2>
+                <div class="info-content" id="weather-info">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Tips sections -->
+            <div class="two-column-section">
+                <div class="info-section">
+                    <h2><i class="fas fa-lightbulb"></i> Travel Tips</h2>
+                    <div class="info-content" id="travel-tips">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <h2><i class="fas fa-suitcase"></i> Packing Suggestions</h2>
+                    <div class="info-content" id="packing-suggestions">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Local customs section -->
+            <div class="info-section">
+                <h2><i class="fas fa-globe-americas"></i> Local Customs</h2>
+                <div class="info-content" id="local-customs">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Emergency contacts section -->
+            <div class="info-section">
+                <h2><i class="fas fa-phone-alt"></i> Emergency Contacts</h2>
+                <div class="info-content" id="emergency-contacts">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="index.html" class="btn btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <button class="btn btn-print" onclick="window.print()">
+                <i class="fas fa-print"></i> Print Plan
+            </button>
+        </div>
+    </div>
+
+    <script src="display.js"></script>
+</body>
+</html>
