@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://localhost:5500',
+    origin: 'http://localhost:5500',
     credentials: true
 }))
 dotenv.config();
@@ -24,7 +24,7 @@ app.post('/register', async (req, res) => {
     const { email, password } = req.body;
     const user = await userModel.findOne({ email });
     if (user) {
-        return res.send("Account Already Exists");
+        return res.status(500).send("Account Already Exists");
     } else {
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(password, salt, async (err, hash) => {
@@ -32,7 +32,7 @@ app.post('/register', async (req, res) => {
                     email, password: hash
                 })
                 let token = jwt.sign({ email, userid: user._id }, process.env.JWT_SECRET_KEY);
-                res.cookie("token", token);
+                res.cookie("token", token, { httpOnly: true, sameSite: 'lax', maxAge: 7 * 24 * 60 * 60 * 1000 });
                 return res.status(200).send("Registration Successful");
             })
         })
@@ -45,7 +45,7 @@ app.post('/login', async (req, res) => {
     const user = await userModel.findOne({ email });
 
     if (!user) {
-        return res.send("User not found. Register first")
+        return res.status(404).send("User not found. Register first")
     }
     else {
         bcrypt.compare(password, user.password, (err, result) => {
@@ -53,10 +53,10 @@ app.post('/login', async (req, res) => {
                 return res.status(500).send("Error Comparing Passwords");
             }
             if (!result) {
-                return res.send("Invalid Credentials");
+                return res.status(401).send("Invalid Credentials");
             }
             let token = jwt.sign({ email, userid: user._id }, process.env.JWT_SECRET_KEY);
-            res.cookie("token", token);
+            res.cookie("token", token, { httpOnly: true, sameSite: 'lax', expires: new Date(Date.now()+ 7 * 24 * 60 * 60 * 1000) });
             return res.status(200).send("Login Successful");
         });
     };

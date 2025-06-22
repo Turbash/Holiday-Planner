@@ -1,0 +1,80 @@
+body {
+    background: #f5f7fa;
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auth-container {
+    background: #fff;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #3a3a3a;
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+.tabs button {
+    flex: 1;
+    padding: 0.7rem 0;
+    border: none;
+    background: #e7eaf0;
+    color: #555;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.7rem 0.7rem 0 0;
+    transition: background 0.2s;
+}
+.tabs button.active {
+    background: #6dcff6;
+    color: #fff;
+    font-weight: 600;
+}
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.auth-form input {
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+.auth-form input:focus {
+    border-color: #6dcff6;
+}
+.auth-form button {
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: #e77fa0;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.auth-form button:hover {
+    background: #6dcff6;
+}
+.form-message {
+    min-height: 1.2em;
+    font-size: 0.95em;
+    color: #e77fa0;
+    margin-top: 0.2em;
+}

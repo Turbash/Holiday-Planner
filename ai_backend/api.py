@@ -22,20 +22,44 @@ def verify_api_key(api_key:str=Header(...)):
     if api_key!=API_KEY:
         raise HTTPException(status_code=401,detail="Unauthorized")
 
-async def get_ai_response(group_type,budget_in_rupees,no_of_people,location,no_of_days):
-    prompt=f"Generate a holiday plan for a {group_type} trip including activities, meals, and relaxation time. The trip should last for {no_of_days} days.Their budget is rupees {budget_in_rupees}.They currently reside in {location}"
-    if group_type not in ["couple","solo"]: 
-        prompt+=f"The number of people in their group is {no_of_people}."
+async def get_ai_response(group_type, budget_in_rupees, no_of_people, location, no_of_days):
+    prompt = f'''You are a holiday planner assistant.
+    Generate a detailed holiday plan for a {group_type} trip for {no_of_people} people in {location}, lasting {no_of_days} days, with a budget of {budget_in_rupees} rupees.
+    
+    Respond ONLY in the following JSON format. 
+    The example below is ONLY for structure. Do NOT copy the example values. 
+    Fill in all fields with realistic, creative, and context-specific data based on the input.
+    
+    {{
+      "days": [
+        {{
+          "day": 1,
+          "title": "A creative title for the day's main activity (e.g., 'Exploring Downtown and Local Cuisine')",
+          "schedule": [
+            {{"time": "09:00", "activity": "A specific morning activity relevant to the location and group type"}},
+            {{"time": "11:00", "activity": "A specific late morning activity"}},
+            {{"time": "13:00", "activity": "A specific afternoon activity"}},
+            {{"time": "19:00", "activity": "A specific evening activity"}}
+          ],
+          "notes": "Helpful notes or tips for this day"
+        }}
+        // ...repeat for each day
+      ],
+      "total_budget": 12345,  // integer, total estimated budget in rupees
+      "suggested_hotels": ["Hotel name 1", "Hotel name 2"],  // array of strings
+      "suggested_restaurants": ["Restaurant name 1", "Restaurant name 2"]  // array of strings
+    }}
+    
+    All fields must be present. Times must be in 24-hour format ("HH:MM"). The response must be valid JSON. Do not include any text outside the JSON. Do NOT copy the example values—generate new, relevant content for each field based on the input. If you do not follow the format or copy the example values, your response will be rejected.
+    '''
     response = client.chat.completions.create(
-    model="gpt-4o",
-   
-    messages=[
-        {
-            "role": "user",
-            "content": prompt
-        }
-    ]
-
+        model="gpt-4o",
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
     )
     return response.choices[0].message.content
 
