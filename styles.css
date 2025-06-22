@@ -234,6 +234,9 @@ section {
     background-color: var(--accent);
     color: white;
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     border: 1px solid var(--accent);
 }
 
@@ -497,4 +500,8 @@ footer {
         gap: 1rem;
         padding: 0 1rem;
     }
+}
+
+.input-group-prepend{
+    width: 10%;
 }
