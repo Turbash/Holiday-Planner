@@ -166,9 +166,9 @@ section {
     background: var(--accent);
     /* Keep your existing background image */
     background-image: linear-gradient(rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.6)),
-        url("images/765f92a1b472f451f6619c7db35608399f2c4441-3240x2160.avif");
+        url("https://img.freepik.com/premium-vector/grossglockner-mountain-range-from-grossglockner-high-alpine-road-colorful-sunrise_674398-5555.jpg");
     background-size: cover;
-    background-position: left;
+    background-position: center;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
     color: #ffffff;

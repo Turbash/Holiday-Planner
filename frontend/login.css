@@ -1,5 +1,9 @@
 body {
-    background: #f5f7fa;
+    /* background: #f5f7fa; */
+    background-image: url("./images/mountain.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     font-family: 'Rubik', sans-serif;
     margin: 0;
     min-height: 100vh;
@@ -7,6 +11,17 @@ body {
     align-items: center;
     justify-content: center;
 }
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4); /* semi-transparent black */
+    z-index: -1;
+}
+
 .auth-container {
     background: #fff;
     padding: 2.5rem 2rem 2rem 2rem;
@@ -71,10 +86,35 @@ h1 {
 }
 .auth-form button:hover {
     background: #6dcff6;
+    transform: scale(1.03);
+    transition: background 0.2s, transform 0.2s;
 }
+
 .form-message {
     min-height: 1.2em;
     font-size: 0.95em;
     color: #e77fa0;
     margin-top: 0.2em;
 }
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 2rem 1rem;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .tabs button {
+        font-size: 0.9rem;
+        padding: 0.6rem 0;
+    }
+
+    .auth-form input,
+    .auth-form button {
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
+}
+
