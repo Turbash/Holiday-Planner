@@ -61,12 +61,6 @@ html {
     aspect-ratio: 1;
 }
 
-@media screen and (max-width: 500px) {
-    #logo > span {
-        display: none;
-    }
-}
-
 .container {
     margin: 0 auto;
     width: 83.33%;
@@ -540,4 +534,27 @@ footer {
 #how-it-works-title {
     margin-bottom: 3rem;
     font-size: 2.5rem;
+}
+
+@media screen and (max-width: 500px) {
+    #logo > span {
+        display: none;
+    }
+    .para{
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+    }
+    #header-title{
+        font-size: 2.1rem;
+        line-height: 2rem;
+        margin-bottom: 1rem;
+    }
+    #action-button{
+        font-size: 1.5rem;
+        padding: 0.5rem 1.2rem;
+    }
+    #nav{
+        padding-top: 0;
+        margin-bottom: 1rem;
+    }
 }
