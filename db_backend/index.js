@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5500',
+    origin: 'https://holiday-planner-delta.vercel.app',
     credentials: true
 }))
 dotenv.config();

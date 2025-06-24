@@ -19,7 +19,7 @@ loginForm.onsubmit = async (e) => {
     e.preventDefault();
     const email = loginForm.email.value;
     const password = loginForm.password.value;
-    const res = await fetch('http://localhost:3000/login', {
+    const res = await fetch('https://holiday-planner-db.onrender.com/login', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -36,7 +36,7 @@ registerForm.onsubmit = async (e) => {
     e.preventDefault();
     const email = registerForm.email.value;
     const password = registerForm.password.value;
-    const res = await fetch('http://localhost:3000/register', {
+    const res = await fetch('https://holiday-planner-db.onrender.com/register', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },

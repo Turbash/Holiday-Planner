@@ -12,7 +12,7 @@ form.onsubmit = async (e) => {
     submit.innerText = "Generating Plan...";
     submit.style.cursor = "not-allowed";
 
-    const res = await fetch('http://localhost:3000/generate', {
+    const res = await fetch('https://holiday-planner-db.onrender.com/generate', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
