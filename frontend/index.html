@@ -1,239 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Holiday Planner</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Holiday Planner</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
+    </head>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
-</head>
+    <body>
+        <header>
+            <nav class="container" id="nav">
+                <div id="logo">
+                    <svg
+                        viewBox="0 0 666 666"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M141 281.508C214.097 272.139 372.608 300.726 454.714 491.791C453.341 491.928 451.949 492 450.541 492H182.788C159.709 492 141 473.291 141 450.212V281.508Z"
+                            fill="#06AEB9"
+                        />
+                        <path
+                            d="M489.799 188.228C491.435 192.704 492.329 197.537 492.329 202.58V450.212C492.329 464.159 485.493 476.508 474.993 484.098C444.629 413.061 404.049 363.004 360.664 328.397C387.653 310.45 414.454 283.709 437.239 257.326C459.246 231.844 477.889 206.243 489.799 188.228Z"
+                            fill="#F9666C"
+                        />
+                        <path
+                            d="M185.883 192.733C185.883 206.718 200.435 218.057 218.385 218.057C236.335 218.057 250.887 206.718 250.887 192.733V160.792H343.749V192.733C343.749 206.718 358.301 218.057 376.251 218.057C394.201 218.057 408.753 206.718 408.753 192.733V160.792H450.541C461.858 160.792 472.123 165.293 479.648 172.6C468.64 189.927 448.595 218.133 424.355 246.199C400.394 273.943 372.806 300.998 346.173 317.472C271.347 264.218 190.748 254.055 141 259.684V202.58C141 179.501 159.709 160.792 182.788 160.792H185.883V192.733Z"
+                            fill="#F9666C"
+                        />
+                        <path
+                            d="M218.385 115.908C207.273 115.908 198.265 124.916 198.265 136.028V185.555C198.265 196.667 207.273 205.675 218.385 205.675C229.497 205.675 238.505 196.667 238.505 185.555V136.028C238.505 124.916 229.497 115.908 218.385 115.908Z"
+                            fill="#F9666C"
+                        />
+                        <path
+                            d="M376.251 205.675C387.363 205.675 396.371 196.667 396.371 185.555V148.41L356.131 159.244V185.555C356.131 196.667 365.139 205.675 376.251 205.675Z"
+                            fill="#F9666C"
+                        />
+                        <path
+                            d="M243.922 464.373L251.586 485.006C252.515 487.508 255.964 487.739 257.219 485.384L322.915 362.118C323.078 361.811 322.691 361.51 322.434 361.743L234.829 441.128C233.8 442.06 233.518 443.564 234.139 444.806L243.922 464.373Z"
+                            fill="white"
+                        />
+                        <path
+                            d="M217.079 456.02L225.212 444.013C226.844 441.605 228.806 439.439 231.042 437.579L322.699 361.32C322.953 361.109 322.744 360.701 322.425 360.782L188.237 394.889C185.873 395.489 185.101 398.461 186.873 400.137L207.063 419.237C209.845 421.868 211.42 425.528 211.42 429.356V454.284C211.42 457.335 215.368 458.546 217.079 456.02Z"
+                            fill="white"
+                        />
+                        <path
+                            d="M563.126 111.539L513.681 145.663C512.355 146.578 510.576 145.059 511.215 143.58C514.932 134.969 519.068 122.266 517.092 114.36C514.725 104.893 512.17 82.4196 511.048 70.9909C510.965 70.1473 510.222 69.5373 509.375 69.5623C500.373 69.8278 489.63 66.0887 483.042 60.9647C477.553 56.695 470.11 56.0812 466.931 56.3107C466.836 56.3176 466.745 56.3344 466.653 56.3597C439.24 63.9032 416.86 75.4814 405.909 82.2649C404.621 83.0626 405.179 85.2954 406.658 85.6195C412.644 86.9308 420.718 89.8783 425.213 91.6897C425.576 91.8361 425.985 91.8399 426.352 91.7023C446.682 84.0735 462.343 81.5806 469.39 81.1545C470.416 81.0925 470.987 82.021 470.196 82.6782C465.757 86.3672 450.862 90.8284 440.886 93.3753C439.568 93.7118 439.271 95.4661 440.412 96.2075L467.646 113.91C468.079 114.191 468.631 114.235 469.107 114.035C483.617 107.941 492.865 107.624 496.943 108.464C497.82 108.644 498.161 109.615 497.614 110.324C491.99 117.608 473.907 123.972 464.435 126.545C463.967 126.672 463.467 126.562 463.085 126.264C437.766 106.56 415.383 100.877 406.855 100.448C406.571 100.434 406.302 100.504 406.055 100.645C381.606 114.612 355.818 136.582 342.879 148.68C341.754 149.732 342.696 151.49 344.19 151.113C361.298 146.803 391.634 136.094 406.169 130.708C406.348 130.642 406.505 130.546 406.648 130.421C414.787 123.293 423.721 118.471 429.462 115.955C430.796 115.37 431.828 116.721 430.876 117.824C423.476 126.404 408.17 138.158 404.11 142.219C400.637 145.692 402.305 148.082 403.801 149.011C403.999 149.134 404.231 149.185 404.463 149.189L459.053 149.958C486.912 149.958 506.258 172.399 506.258 191.746V211.599C506.258 213.112 508.375 213.855 509.433 212.772C513.707 208.395 519.816 203.864 524.032 201.02C525.043 200.338 526.378 201.073 526.378 202.292V207.436C526.378 207.798 526.256 208.15 526.005 208.411C522.51 212.046 511.014 218.338 504.786 221.498C504.263 221.763 503.936 222.296 503.936 222.882V230.229C503.936 231.541 505.558 232.373 506.74 231.803C509.897 230.28 514.097 229.209 517.308 228.592C518.528 228.358 519.412 229.609 518.734 230.65C514.62 236.968 508.468 240.435 504.939 241.718C504.34 241.936 503.897 242.464 503.838 243.1L501.146 272.04C501.025 273.345 502.48 274.192 503.545 273.428C525.256 257.878 536.033 241.526 538.76 235.081C542.474 224.557 540.307 211.608 538.76 206.449C536.449 192.009 524.079 172.404 516.985 162.719C516.319 161.809 516.812 160.539 517.938 160.596C530.843 161.253 549.752 187.42 559.456 203.496C560.145 204.638 561.861 204.445 562.254 203.17C563.776 198.238 564.772 194.079 565.423 190.636C565.757 188.866 568.539 188.716 568.771 190.503C569.891 199.134 570.062 208.144 569.75 213.603C569.728 213.982 569.839 214.345 570.066 214.649C577.814 225.031 584.853 248.25 588.174 261.568C588.51 262.915 590.318 263.201 591.041 262.016L616.609 220.113C616.808 219.785 616.878 219.386 616.805 219.01C607.141 169.241 570.726 152.675 548.574 149.698C546.944 149.48 546.584 147.269 548.156 146.787C565.256 141.541 589.287 142.821 604.643 144.882C606.319 145.107 607.402 142.504 606.142 141.375C595.348 131.698 590.589 119.251 589.285 112.584C589.137 111.828 588.488 111.265 587.718 111.265H564.005C563.691 111.265 563.385 111.361 563.126 111.539Z"
+                            fill="#00B5BD"
+                        />
+                        <path
+                            d="M505.339 54H483.042C484.332 54 488.459 55.0834 494.65 59.417C499.729 62.9724 505.503 63.2983 508.98 62.8733C509.972 62.752 510.442 61.6706 509.963 60.7933L506.698 54.8066C506.427 54.3094 505.906 54 505.339 54Z"
+                            fill="#00B5BD"
+                        />
+                        <path
+                            d="M609.18 132.933C604.814 129.877 599.935 124.075 596.443 119.383C595.483 118.093 596.896 116.538 598.305 117.312L629.889 134.652C630.967 135.244 630.957 136.795 629.872 137.374L621.8 141.679C621.199 142 620.46 141.89 619.959 141.429C618.131 139.745 614.385 136.576 609.18 132.933Z"
+                            fill="#00B5BD"
+                        />
+                    </svg>
+                    <span>HOLIDAY PLANNER</span>
+                </div>
+                <a href="./login.html" id="login">LOGIN</a>
+            </nav>
 
-<body>
-    <header>
-        <nav class="container" id="nav">
-            <div>LOGO</div>
-            <a href="./login.html" id="login">LOGIN</a>
-        </nav>
-
-        <div class="header-container">
-            <div class="header-container-inner">
-                <h1>
-                    A healty meal delivered to your door, every single day
-                </h1>
-                <p>
-                    The smart 365-days-per-year food subscription that will
-                    make you eat healty algain. Tailored to your personal
-                    tastes and nutritional needs
-                </p>
-                <a href="#form-container" class="btn">Start Planning</a>
-            </div>
-        </div>
-    </header>
-
-    <section>
-        <div class="container">
-            <h2>Some random heading</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Magni veniam laborum esse, id doloribus nemo hic nulla,
-                fugiat autem atque ipsum quaerat illum qui in expedita
-                labore eaque, impedit fugit! Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Impedit dicta praesentium
-                nostrum optio, fugit, quaerat alias accusamus quia,
-                laboriosam numquam enim temporibus dignissimos voluptates
-                dolor? Illo eligendi perferendis veritatis assumenda!
-            </p>
-        </div>
-    </section>
-
-    <div class="form-container">
-        <!-- open container -->
-        <div class="row">
-            <!--  open row -->
-
-            <div id="form-header" class="col-12">
-                <h1 id="title">Holiday Plan Generator</h1>
-            </div>
-        </div>
-        <!--  close row -->
-
-        <div class="row" id="form-container">
-            <!--  open row -->
-            <div id="form-tagline" class="col-md-4">
-                <div class="form-tagline">
-                    <i class="fa fa-umbrella-beach fa-5x"></i>
-                    <h2>Plan Your Holiday</h2>
-                    <p id="description" class="lead">
-                        Generate a personalized holiday plan
+            <div class="header-container">
+                <div class="header-container-inner">
+                    <h1>
+                        A healty meal delivered to your door, every single day
+                    </h1>
+                    <p>
+                        The smart 365-days-per-year food subscription that will
+                        make you eat healty algain. Tailored to your personal
+                        tastes and nutritional needs
                     </p>
+                    <a href="#form-container" class="btn">Start Planning</a>
                 </div>
             </div>
+        </header>
 
-            <div id="form-content" class="col-md-8">
-                <form id="survey-form">
-                    <!-- open form -->
-
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                            <label class="control-label" for="group_type">Type of Trip:</label>
-                        </div>
-
-                        <div class="input-group col-sm-9">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon-purpose">
-                                    <i class="fa fa-users"></i>
-                                </span>
-                            </div>
-
-                            <select class="form-control" id="group_type" name="group_type">
-                                <option value="friends">Friends</option>
-                                <option value="couple">Couple</option>
-                                <option value="family">Family</option>
-                                <option value="solo">Solo</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                            <label id="budget-label" class="control-label" for="budget_in_rupees">
-                                *Budget (₹):
-                            </label>
-                        </div>
-
-                        <div class="input-group col-sm-9">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon-budget">
-                                    <i class="fa fa-rupee-sign"></i>
-                                </span>
-                            </div>
-                            <input type="number" class="form-control" id="budget_in_rupees"
-                                placeholder="Enter your budget in rupees" name="budget_in_rupees" min="1000" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                            <label id="people-label" class="control-label" for="no_of_people">
-                                *Number of People:
-                            </label>
-                        </div>
-
-                        <div class="input-group col-sm-9">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon-people">
-                                    <i class="fa fa-user-friends"></i>
-                                </span>
-                            </div>
-                            <input type="number" class="form-control" id="no_of_people"
-                                placeholder="Number of travelers" name="no_of_people" min="1" max="20" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                            <label id="location-label" class="control-label" for="location">
-                                *Location:
-                            </label>
-                        </div>
-
-                        <div class="input-group col-sm-9">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon-location">
-                                    <i class="fa fa-map-marker-alt"></i>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control" id="location" placeholder="Where do you want to go?"
-                                name="location" minlength="3" maxlength="40" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                            <label id="days-label" class="control-label" for="no_of_days">
-                                *Number of Days:
-                            </label>
-                        </div>
-
-                        <div class="input-group col-sm-9">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon-days">
-                                    <i class="fa fa-calendar-alt"></i>
-                                </span>
-                            </div>
-                            <input type="number" class="form-control" id="no_of_days" placeholder="Length of stay"
-                                name="no_of_days" min="1" max="30" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-12 submit-button">
-                            <button type="submit" id="submit" class="btn btn-default" aria-pressed="true">
-                                Generate Holiday Plan
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <!-- close form -->
+        <section>
+            <div class="container">
+                <h2>Some random heading</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Magni veniam laborum esse, id doloribus nemo hic nulla,
+                    fugiat autem atque ipsum quaerat illum qui in expedita
+                    labore eaque, impedit fugit! Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Impedit dicta praesentium
+                    nostrum optio, fugit, quaerat alias accusamus quia,
+                    laboriosam numquam enim temporibus dignissimos voluptates
+                    dolor? Illo eligendi perferendis veritatis assumenda!
+                </p>
             </div>
-            <!-- close form content div -->
-        </div>
-        <!-- close row -->
-    </div>
-    <!--  close container -->
+        </section>
 
-
-    <footer>
-        <div class="footer-container">
+        <div class="form-container">
+            <!-- open container -->
             <div class="row">
-                <div class="col-md-6">
-                    <div class="footer-section">
-                        <h3>Send Us Feedback</h3>
-                        <form id="feedback-form" method="POST" action="https://formspree.io/f/mldnprvq">
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="feedback" rows="3" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                <!--  open row -->
+
+                <div id="form-header" class="col-12">
+                    <h1 id="title">Holiday Plan Generator</h1>
+                </div>
+            </div>
+            <!--  close row -->
+
+            <div class="row" id="form-container">
+                <!--  open row -->
+                <div id="form-tagline" class="col-md-4">
+                    <div class="form-tagline">
+                        <i class="fa fa-umbrella-beach fa-5x"></i>
+                        <h2>Plan Your Holiday</h2>
+                        <p id="description" class="lead">
+                            Generate a personalized holiday plan
+                        </p>
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="footer-section">
-                        <h3>Contact Info</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Holiday Street, Vacation City</p>
-                        <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
-                        <p><i class="fas fa-envelope"></i> info@holidayplanner.com</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <div id="form-content" class="col-md-8">
+                    <form id="survey-form">
+                        <!-- open form -->
+
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label class="control-label" for="group_type"
+                                    >Type of Trip:</label
+                                >
+                            </div>
+
+                            <div class="input-group col-sm-9">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text"
+                                        id="basic-addon-purpose"
+                                    >
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                </div>
+
+                                <select
+                                    class="form-control"
+                                    id="group_type"
+                                    name="group_type"
+                                >
+                                    <option value="friends">Friends</option>
+                                    <option value="couple">Couple</option>
+                                    <option value="family">Family</option>
+                                    <option value="solo">Solo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label
+                                    id="budget-label"
+                                    class="control-label"
+                                    for="budget_in_rupees"
+                                >
+                                    *Budget (₹):
+                                </label>
+                            </div>
+
+                            <div class="input-group col-sm-9">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text"
+                                        id="basic-addon-budget"
+                                    >
+                                        <i class="fa fa-rupee-sign"></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="budget_in_rupees"
+                                    placeholder="Enter your budget in rupees"
+                                    name="budget_in_rupees"
+                                    min="1000"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label
+                                    id="people-label"
+                                    class="control-label"
+                                    for="no_of_people"
+                                >
+                                    *Number of People:
+                                </label>
+                            </div>
+
+                            <div class="input-group col-sm-9">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text"
+                                        id="basic-addon-people"
+                                    >
+                                        <i class="fa fa-user-friends"></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="no_of_people"
+                                    placeholder="Number of travelers"
+                                    name="no_of_people"
+                                    min="1"
+                                    max="20"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label
+                                    id="location-label"
+                                    class="control-label"
+                                    for="location"
+                                >
+                                    *Location:
+                                </label>
+                            </div>
+
+                            <div class="input-group col-sm-9">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text"
+                                        id="basic-addon-location"
+                                    >
+                                        <i class="fa fa-map-marker-alt"></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="location"
+                                    placeholder="Where do you want to go?"
+                                    name="location"
+                                    minlength="3"
+                                    maxlength="40"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label
+                                    id="days-label"
+                                    class="control-label"
+                                    for="no_of_days"
+                                >
+                                    *Number of Days:
+                                </label>
+                            </div>
+
+                            <div class="input-group col-sm-9">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text"
+                                        id="basic-addon-days"
+                                    >
+                                        <i class="fa fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="no_of_days"
+                                    placeholder="Length of stay"
+                                    name="no_of_days"
+                                    min="1"
+                                    max="30"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-12 submit-button">
+                                <button
+                                    type="submit"
+                                    id="submit"
+                                    class="btn btn-default"
+                                    aria-pressed="true"
+                                >
+                                    Generate Holiday Plan
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- close form -->
+                </div>
+                <!-- close form content div -->
+            </div>
+            <!-- close row -->
+        </div>
+        <!--  close container -->
+
+        <footer>
+            <div class="footer-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="footer-section">
+                            <h3>Send Us Feedback</h3>
+                            <form
+                                id="feedback-form"
+                                method="POST"
+                                action="https://formspree.io/f/mldnprvq"
+                            >
+                                <div class="form-group">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        class="form-control"
+                                        placeholder="Your Email"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <textarea
+                                        class="form-control"
+                                        name="feedback"
+                                        rows="3"
+                                        placeholder="Your Message"
+                                        required
+                                    ></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="footer-section">
+                            <h3>Contact Info</h3>
+                            <p>
+                                <i class="fas fa-map-marker-alt"></i> 123
+                                Holiday Street, Vacation City
+                            </p>
+                            <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                            <p>
+                                <i class="fas fa-envelope"></i>
+                                info@holidayplanner.com
+                            </p>
+                            <div class="social-links">
+                                <a href="#"
+                                    ><i class="fab fa-facebook-f"></i
+                                ></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"
+                                    ><i class="fab fa-linkedin-in"></i
+                                ></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="copyright">
-            <p>&copy; 2025 Holiday Planner. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Cookie Policy</a>
+            <div class="copyright">
+                <p>&copy; 2025 Holiday Planner. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
             </div>
-        </div>
-    </footer>
-    <script src="script.js"></script>
-</body>
-
+        </footer>
+        <script src="script.js"></script>
+    </body>
 </html>

@@ -24,13 +24,6 @@
     margin-right: 3rem;
     color: white;
 }*/
-#login{
-    color: inherit;
-    :hover{
-        
-    }
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 
 * {
@@ -47,9 +40,38 @@ html {
     scroll-behavior: smooth;
 }
 
+#login {
+    color: inherit;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    width: fit-content;
+}
+
+#logo > span {
+    white-space: nowrap;
+}
+
+#logo > svg {
+    height: 6rem;
+    aspect-ratio: 1;
+}
+
+@media screen and (max-width: 500px) {
+    #logo > span {
+        display: none;
+    }
+}
+
 .container {
     margin: 0 auto;
     width: 83.33%;
+    display: flex;
+    align-items: center;
 }
 
 header {
@@ -167,7 +189,10 @@ section {
 #form-tagline {
     background: var(--accent);
     /* Keep your existing background image */
-    background-image: linear-gradient(rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.6)),
+    background-image: linear-gradient(
+            rgba(17, 17, 17, 0.6),
+            rgba(17, 17, 17, 0.6)
+        ),
         url("https://img.freepik.com/premium-vector/grossglockner-mountain-range-from-grossglockner-high-alpine-road-colorful-sunrise_674398-5555.jpg");
     background-size: cover;
     background-position: center;
@@ -276,7 +301,7 @@ button#submit:hover {
     }
 }
 
-#group_type{
+#group_type {
     height: 100%;
 }
 
@@ -342,18 +367,18 @@ footer {
     footer {
         padding: 3rem 0 0;
     }
-    
+
     .footer-container {
         width: 90%;
         grid-template-columns: 1fr;
         gap: 2rem;
         padding-bottom: 2rem;
     }
-    
+
     .copyright {
         padding: 1.2rem 0;
     }
-    
+
     .footer-links {
         gap: 1rem;
         padding: 0 1rem;
@@ -374,7 +399,7 @@ footer {
 }
 
 .footer-section h3::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: 0;
@@ -486,24 +511,24 @@ footer {
     footer {
         padding: 3rem 0 0;
     }
-    
+
     .footer-container {
         width: 90%;
         grid-template-columns: 1fr;
         gap: 2rem;
         padding-bottom: 2rem;
     }
-    
+
     .copyright {
         padding: 1.2rem 0;
     }
-    
+
     .footer-links {
         gap: 1rem;
         padding: 0 1rem;
     }
 }
 
-.input-group-prepend{
+.input-group-prepend {
     width: 10%;
 }
