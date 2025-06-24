@@ -83,11 +83,10 @@ app.post('/generate', isLoggedIn, async (req, res) => {
     }
 });
 
-app.listen(3000, async () => {
+app.listen(process.env.PORT || 3000, async () => {
     try {
         await dbConnect();
     } catch {
         return res.send("database error");
     }
-    console.log('Backend running at port 3000');
 });
