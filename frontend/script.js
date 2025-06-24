@@ -13,21 +13,34 @@ form.onsubmit = async (e) => {
     submit.style.cursor = "not-allowed";
 
     const token = localStorage.getItem('token');
-    const res = await fetch('https://holiday-planner-db.onrender.com/generate', {
-        method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json',
-            'Authorization': token ? `Bearer ${token}` : ''
-        },
-        body: JSON.stringify({ group_type, budget_in_rupees, no_of_people, location, no_of_days })
-    });
-    const plan = await res.text();
-    if (res.ok) {
-        localStorage.setItem("Plan", plan);
-        window.location.href = "display.html";
-    }
-    if(plan=="Unauthorized"){
-        window.location.href="login.html";
+    let res, plan;
+    try {
+        res = await fetch('https://holiday-planner-db.onrender.com/generate', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : ''
+            },
+            body: JSON.stringify({ group_type, budget_in_rupees, no_of_people, location, no_of_days })
+        });
+        plan = await res.text();
+    } catch (error) {
+        alert("Network error. Please try again later.");
+        submit.disabled = false;
+        submit.innerText = "Submit";
+        submit.style.cursor = "";
+        return;
     }
 
+    if (res && res.ok) {
+        localStorage.setItem("Plan", plan);
+        window.location.href = "display.html";
+    } else if (plan == "Unauthorized") {
+        window.location.href = "login.html";
+    } else {
+        alert("Error generating plan. Please try again.");
+        submit.disabled = false;
+        submit.innerText = "Submit";
+        submit.style.cursor = "";
+    }
 };
