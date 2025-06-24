@@ -12,10 +12,13 @@ form.onsubmit = async (e) => {
     submit.innerText = "Generating Plan...";
     submit.style.cursor = "not-allowed";
 
+    const token = localStorage.getItem('token');
     const res = await fetch('https://holiday-planner-db.onrender.com/generate', {
         method: 'POST',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': token ? `Bearer ${token}` : ''
+        },
         body: JSON.stringify({ group_type, budget_in_rupees, no_of_people, location, no_of_days })
     });
     const plan = await res.text();

@@ -1,4 +1,3 @@
-const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -13,10 +12,8 @@ const dbConnect = require('./config/db.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 app.use(cors({
-    origin: 'https://holiday-planner-frontend.onrender.com',
-    credentials: true
+    origin: 'https://holiday-planner-frontend.onrender.com'
 }))
 dotenv.config();
 
@@ -32,8 +29,7 @@ app.post('/register', async (req, res) => {
                     email, password: hash
                 })
                 let token = jwt.sign({ email, userid: user._id }, process.env.JWT_SECRET_KEY);
-                res.cookie("token", token, { httpOnly: true, secure: true, sameSite: 'none', maxAge: 7 * 24 * 60 * 60 * 1000 });
-                return res.status(200).send("Registration Successful");
+                return res.status(200).json({ message: "Registration Successful", token });
             })
         })
     };
@@ -56,8 +52,7 @@ app.post('/login', async (req, res) => {
                 return res.status(401).send("Invalid Credentials");
             }
             let token = jwt.sign({ email, userid: user._id }, process.env.JWT_SECRET_KEY);
-            res.cookie("token", token, { httpOnly: true, secure: true, sameSite: 'none', expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) });
-            return res.status(200).send("Login Successful");
+            return res.status(200).json({ message: "Login Successful", token });
         });
     };
 });

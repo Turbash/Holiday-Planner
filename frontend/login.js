@@ -21,15 +21,20 @@ loginForm.onsubmit = async (e) => {
     const password = loginForm.password.value;
     const res = await fetch('https://holiday-planner-db.onrender.com/login', {
         method: 'POST',
-        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
     });
-    const msg = await res.text();
-    console.log(res)
-    console.log(msg)
-    document.getElementById('login-message').textContent = msg;
-    if (res.ok) setTimeout(() => window.location.href = "index.html", 1000);
+    let data;
+    try {
+        data = await res.json();
+    } catch {
+        data = { message: await res.text() };
+    }
+    document.getElementById('login-message').textContent = data.message || '';
+    if (res.ok && data.token) {
+        localStorage.setItem('token', data.token);
+        setTimeout(() => window.location.href = "index.html", 1000);
+    }
 };
 
 registerForm.onsubmit = async (e) => {
@@ -38,13 +43,18 @@ registerForm.onsubmit = async (e) => {
     const password = registerForm.password.value;
     const res = await fetch('https://holiday-planner-db.onrender.com/register', {
         method: 'POST',
-        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
     });
-    const msg = await res.text();
-    console.log(res);
-    console.log(msg);
-    document.getElementById('register-message').textContent = msg;
-    if (res.ok) setTimeout(() => window.location.href = "index.html", 1000);
+    let data;
+    try {
+        data = await res.json();
+    } catch {
+        data = { message: await res.text() };
+    }
+    document.getElementById('register-message').textContent = data.message || '';
+    if (res.ok && data.token) {
+        localStorage.setItem('token', data.token);
+        setTimeout(() => window.location.href = "index.html", 1000);
+    }
 };
