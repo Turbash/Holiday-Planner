@@ -1,0 +1,3 @@
+fastapi[standard]
+g4f
+python-dotenv

@@ -1,5 +1,6 @@
 from fastapi import FastAPI,Body,HTTPException,Depends,Header
 from g4f.client import Client
+from fastapi.concurrency import run_in_threadpool
 from enum import Enum
 from typing import Annotated
 from fastapi.middleware.cors import CORSMiddleware
@@ -22,7 +23,7 @@ def verify_api_key(api_key:str=Header(...)):
     if api_key!=API_KEY:
         raise HTTPException(status_code=401,detail="Unauthorized")
 
-async def get_ai_response(group_type, budget_in_rupees, no_of_people, location, no_of_days):
+def get_ai_response(group_type, budget_in_rupees, no_of_people, location, no_of_days):
     prompt = f'''You are a holiday planner assistant.
     Generate a detailed holiday plan for a {group_type} trip for {no_of_people} people in {location}, lasting {no_of_days} days, with a budget of {budget_in_rupees} rupees.
 
@@ -118,5 +119,5 @@ app.add_middleware(
 
 @app.post("/")
 async def root(group_type:Annotated[GroupType,Body()],budget_in_rupees:Annotated[int,Body()],no_of_people:Annotated[int,Body()],location:Annotated[str,Body(max_length=40,min_length=3)],no_of_days:Annotated[int,Body()],api_key:str=Depends(verify_api_key)):
-    response=await get_ai_response(group_type,budget_in_rupees,no_of_people,location,no_of_days)
+    response=await run_in_threadpool(get_ai_response,group_type,budget_in_rupees,no_of_people,location,no_of_days)
     return response

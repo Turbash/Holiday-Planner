@@ -8,6 +8,10 @@ form.onsubmit = async (e) => {
     const budget_in_rupees = form.budget_in_rupees.value;
     const location = form.location.value;
 
+    submit.disabled = true;
+    submit.innerText = "Generating Plan...";
+    submit.style.cursor = "not-allowed";
+
     const res = await fetch('http://localhost:3000/generate', {
         method: 'POST',
         credentials: 'include',
