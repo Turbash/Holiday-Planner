@@ -159,7 +159,7 @@ h2 {
 }
 
 section {
-    padding: 10rem 0;
+    padding: 7rem 0;
     background-color: #f7f7f7;
     font-family: "Rubik", sans-serif;
 }
@@ -531,4 +531,13 @@ footer {
 
 .input-group-prepend {
     width: 10%;
+}
+
+#how-it-works{
+    flex-direction: column;
+    text-align: center;
+}
+#how-it-works-title {
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
 }
