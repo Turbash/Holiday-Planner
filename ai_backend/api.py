@@ -31,6 +31,8 @@ def get_ai_response(group_type, budget_in_rupees, no_of_people, location, no_of_
     The example below is ONLY for structure. Do NOT copy the example values. 
     Fill in all fields with realistic, creative, and context-specific data based on the input.
 
+    IMPORTANT: For each day, generate a unique, detailed schedule. Do NOT summarize, skip, or use placeholders for any day. Do NOT use phrases like "similarly for other days", "repeat for remaining days", or similar. Every day must be fully filled out with specific activities, times, and details.
+
     {{
       "location": {location},
       "group_type": the group type input by the user,
