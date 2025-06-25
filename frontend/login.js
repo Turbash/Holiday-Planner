@@ -38,18 +38,12 @@ loginForm.onsubmit = async (e) => {
             data = { message: msg };
         }
 
-        // Backend responses:
-        // 404: "User not found. Register first"
-        // 401: "Invalid Credentials"
-        // 500: "Error Comparing Passwords"
-        // 200: { message: "...", token: "..." }
-
         if (res.status === 404) {
             document.getElementById('login-message').textContent = data.message || "User not found. Register first";
         } else if (res.status === 401) {
             document.getElementById('login-message').textContent = data.message || "Invalid Credentials";
         } else if (res.status === 500) {
-            document.getElementById('login-message').textContent = data.message || "Error Comparing Passwords";
+            document.getElementById('login-message').textContent = data.message || "Server error. Please try again.";
         } else if (res.ok && data.token) {
             document.getElementById('login-message').textContent = data.message || '';
             localStorage.setItem('token', data.token);
@@ -89,10 +83,6 @@ registerForm.onsubmit = async (e) => {
         } catch {
             data = { message: msg };
         }
-        // Backend responses:
-        // 500: "Account Already Exists"
-        // 200: { message: "...", token: "..." }
-
         if (res.status === 500) {
             document.getElementById('register-message').textContent = data.message || "Account Already Exists";
         } else if (res.ok && data.token) {
