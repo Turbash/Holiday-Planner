@@ -579,4 +579,50 @@ footer {
     text-align: center;
     font-weight: 500;
     opacity: 0.97;
-}
+}/* Toggle Button Styling */
+#menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Updated Nav Styling */
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 768px) {
+    #menu-toggle {
+      display: block;
+      padding: 1rem;
+    }
+  
+    .nav-list {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 10px;
+      background-color: #111;
+      width: 200px;
+      border-radius: 8px;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+  
+    .nav-list li {
+      margin: 1rem 0;
+      text-align: right;
+    }
+  
+    .nav-list.active {
+      display: flex;
+    }
+  }
+  
