@@ -44,7 +44,6 @@ function fetchPlanData() {
         document.getElementById('plan-container').innerHTML = `
             <div class="error">
                 <p>Could not load your holiday plan. Please try again.</p>
-                <p>Error: ${error.message}</p>
             </div>
         `;
     }
