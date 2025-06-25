@@ -96,6 +96,22 @@ h1 {
     color: #e77fa0;
     margin-top: 0.2em;
 }
+#toast-message {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #323232;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: none;
+    max-width: 90vw;
+    word-break: break-word;
+}
 @media (max-width: 480px) {
     .auth-container {
         padding: 2rem 1rem;

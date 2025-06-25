@@ -3,13 +3,18 @@ window.onload = () => {
     const submit = document.getElementById('submit');
     const group_type_input = document.getElementById('group_type');
     const no_of_people_input = document.getElementById('no_of_people');
-    const login= document.getElementById('login');
+    const login = document.getElementById('login');
+    const toast = document.getElementById('toast-message');
     const token = localStorage.getItem('token');
     if(token){
         login.innerText = "LOGOUT";
-        login.onclick = () => {
+        login.onclick = (e) => {
+            e.preventDefault();
             localStorage.removeItem('token');
-            window.location.href = "index.html";
+            showToast("Successfully logged out");
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1200);
         }
     }
     group_type_input.addEventListener('change', () => {
@@ -64,4 +69,13 @@ window.onload = () => {
             submit.style.cursor = "";
         }
     };
+
+    function showToast(message) {
+        if (!toast) return;
+        toast.innerText = message;
+        toast.style.display = "block";
+        setTimeout(() => {
+            toast.style.display = "none";
+        }, 1000);
+    }
 }
