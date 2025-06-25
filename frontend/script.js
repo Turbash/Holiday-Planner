@@ -1,18 +1,27 @@
-window.oncontentload = () => {
+window.onload = () => {
     const form = document.getElementById('survey-form');
     const submit = document.getElementById('submit');
+    const group_type_input = document.getElementById('group_type');
+    const no_of_people_input = document.getElementById('no_of_people');
+
+    group_type_input.addEventListener('change', () => {
+        if (group_type_input.value === "solo") {
+            no_of_people_input.value = 1;
+        } else if (group_type_input.value === "couple") {
+            no_of_people_input.value = 2;
+        }
+    });
+
     form.onsubmit = async (e) => {
         e.preventDefault();
+        submit.disabled = true;
+        submit.innerText = "Generating Plan...";
+        submit.style.cursor = "not-allowed";
         const group_type = form.group_type.value;
         const no_of_days = form.no_of_days.value;
         const no_of_people = form.no_of_people.value;
         const budget_in_rupees = form.budget_in_rupees.value;
         const location = form.location.value;
-
-        submit.disabled = true;
-        submit.innerText = "Generating Plan...";
-        submit.style.cursor = "not-allowed";
-
         const token = localStorage.getItem('token');
         let res, plan;
         try {
@@ -25,21 +34,23 @@ window.oncontentload = () => {
                 body: JSON.stringify({ group_type, budget_in_rupees, no_of_people, location, no_of_days })
             });
             plan = await res.text();
+
+            if (res.status === 401 || plan === "Unauthorized") {
+                window.location.href = "login.html";
+                return;
+            }
+
+            if (res.ok) {
+                localStorage.setItem("Plan", plan);
+                window.location.href = "display.html";
+            } else {
+                alert(plan || "Error generating plan. Please try again.");
+                submit.disabled = false;
+                submit.innerText = "Submit";
+                submit.style.cursor = "";
+            }
         } catch (error) {
             alert("Network error. Please try again later.");
-            submit.disabled = false;
-            submit.innerText = "Submit";
-            submit.style.cursor = "";
-            return;
-        }
-
-        if (res && res.ok) {
-            localStorage.setItem("Plan", plan);
-            window.location.href = "display.html";
-        } else if (plan == "Unauthorized") {
-            window.location.href = "login.html";
-        } else {
-            alert("Error generating plan. Please try again.");
             submit.disabled = false;
             submit.innerText = "Submit";
             submit.style.cursor = "";
