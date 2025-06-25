@@ -3,7 +3,15 @@ window.onload = () => {
     const submit = document.getElementById('submit');
     const group_type_input = document.getElementById('group_type');
     const no_of_people_input = document.getElementById('no_of_people');
-
+    const login= document.getElementById('login');
+    const token = localStorage.getItem('token');
+    if(token){
+        login.innerText = "LOGOUT";
+        login.onclick = () => {
+            localStorage.removeItem('token');
+            window.location.href = "index.html";
+        }
+    }
     group_type_input.addEventListener('change', () => {
         if (group_type_input.value === "solo") {
             no_of_people_input.value = 1;
