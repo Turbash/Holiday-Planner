@@ -37,14 +37,28 @@ loginForm.onsubmit = async (e) => {
             data = { message: await res.text() };
         }
         if (res.status === 401) {
-            document.getElementById('login-message').textContent = data.message || "Unauthorized";
+            document.getElementById('login-message').textContent = data.message || "Invalid Credentials";
+            loginButton.disabled = false;
+            loginButton.innerText = "Login";
+            loginButton.style.cursor = "";
+            return;
+        }
+        if (res.status === 404) {
+            document.getElementById('login-message').textContent = data.message || "User not found. Register first";
+            loginButton.disabled = false;
+            loginButton.innerText = "Login";
+            loginButton.style.cursor = "";
+            return;
+        }
+        if (!res.ok) {
+            document.getElementById('login-message').textContent = data.message || "Login failed";
             loginButton.disabled = false;
             loginButton.innerText = "Login";
             loginButton.style.cursor = "";
             return;
         }
         document.getElementById('login-message').textContent = data.message || '';
-        if (res.ok && data.token) {
+        if (data.token) {
             localStorage.setItem('token', data.token);
             setTimeout(() => window.location.href = "index.html", 1000);
         } else {
@@ -78,6 +92,13 @@ registerForm.onsubmit = async (e) => {
             data = await res.json();
         } catch {
             data = { message: await res.text() };
+        }
+        if (res.status === 500) {
+            document.getElementById('register-message').textContent = data.message || "Account Already Exists";
+            registerButton.disabled = false;
+            registerButton.innerText = "Register";
+            registerButton.style.cursor = "";
+            return;
         }
         if (!res.ok) {
             document.getElementById('register-message').textContent = data.message || "Registration failed";
