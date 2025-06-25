@@ -24,24 +24,39 @@ loginForm.onsubmit = async (e) => {
     loginButton.style.cursor = "not-allowed";
     const email = loginForm.email.value;
     const password = loginForm.password.value;
-    const res = await fetch('https://holiday-planner-db.onrender.com/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-    });
-    let data;
+    let res, data;
     try {
-        data = await res.json();
-    } catch {
-        data = { message: await res.text() };
+        res = await fetch('https://holiday-planner-db.onrender.com/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        try {
+            data = await res.json();
+        } catch {
+            data = { message: await res.text() };
+        }
+        if (res.status === 401) {
+            document.getElementById('login-message').textContent = data.message || "Unauthorized";
+            loginButton.disabled = false;
+            loginButton.innerText = "Login";
+            loginButton.style.cursor = "";
+            return;
+        }
+        document.getElementById('login-message').textContent = data.message || '';
+        if (res.ok && data.token) {
+            localStorage.setItem('token', data.token);
+            setTimeout(() => window.location.href = "index.html", 1000);
+        } else {
+            loginButton.disabled = false;
+            loginButton.innerText = "Login";
+            loginButton.style.cursor = "";
+        }
+    } catch (error) {
+        document.getElementById('login-message').textContent = "Network error. Please try again.";
         loginButton.disabled = false;
         loginButton.innerText = "Login";
         loginButton.style.cursor = "";
-    }
-    document.getElementById('login-message').textContent = data.message || '';
-    if (res.ok && data.token) {
-        localStorage.setItem('token', data.token);
-        setTimeout(() => window.location.href = "index.html", 1000);
     }
 };
 
@@ -52,23 +67,38 @@ registerForm.onsubmit = async (e) => {
     registerButton.style.cursor = "not-allowed";
     const email = registerForm.email.value;
     const password = registerForm.password.value;
-    const res = await fetch('https://holiday-planner-db.onrender.com/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-    });
-    let data;
+    let res, data;
     try {
-        data = await res.json();
-    } catch {
-        data = { message: await res.text() };
+        res = await fetch('https://holiday-planner-db.onrender.com/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        try {
+            data = await res.json();
+        } catch {
+            data = { message: await res.text() };
+        }
+        if (!res.ok) {
+            document.getElementById('register-message').textContent = data.message || "Registration failed";
+            registerButton.disabled = false;
+            registerButton.innerText = "Register";
+            registerButton.style.cursor = "";
+            return;
+        }
+        document.getElementById('register-message').textContent = data.message || '';
+        if (data.token) {
+            localStorage.setItem('token', data.token);
+            setTimeout(() => window.location.href = "index.html", 1000);
+        } else {
+            registerButton.disabled = false;
+            registerButton.innerText = "Register";
+            registerButton.style.cursor = "";
+        }
+    } catch (error) {
+        document.getElementById('register-message').textContent = "Network error. Please try again.";
         registerButton.disabled = false;
         registerButton.innerText = "Register";
         registerButton.style.cursor = "";
-    }
-    document.getElementById('register-message').textContent = data.message || '';
-    if (res.ok && data.token) {
-        localStorage.setItem('token', data.token);
-        setTimeout(() => window.location.href = "index.html", 1000);
     }
 };
