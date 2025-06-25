@@ -563,14 +563,20 @@ footer {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: #323232;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-size: 16px;
+    background: linear-gradient(90deg, #06aeb9 60%, #f9666c 100%);
+    color: #fffbe7;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.1rem;
     z-index: 9999;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 16px rgba(6, 174, 185, 0.18), 0 2px 8px rgba(249, 102, 108, 0.12);
     display: none;
     max-width: 90vw;
     word-break: break-word;
+    font-family: "Rubik", sans-serif;
+    letter-spacing: 0.5px;
+    border: 2px solid #fffbe7;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0.97;
 }
