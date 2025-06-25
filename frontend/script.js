@@ -48,7 +48,7 @@ window.onload = () => {
             });
             plan = await res.text();
 
-            if (res.status === 401 || plan === "Unauthorized") {
+            if (res.status === 401 || plan === "Unauthorized" || plan === "Invalid token") {
                 window.location.href = "login.html";
                 return;
             }
@@ -56,8 +56,13 @@ window.onload = () => {
             if (res.ok) {
                 localStorage.setItem("Plan", plan);
                 window.location.href = "display.html";
+            } else if (res.status === 500) {
+                alert("Error generating plan. Please try again.");
+                submit.disabled = false;
+                submit.innerText = "Submit";
+                submit.style.cursor = "";
             } else {
-                alert(plan || "Error generating plan. Please try again.");
+                alert(plan || "Unknown error. Please try again.");
                 submit.disabled = false;
                 submit.innerText = "Submit";
                 submit.style.cursor = "";
